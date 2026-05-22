@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>投资复盘工具 | 基金股票买入理由记录与复盘模板</title>
+    <meta name="description" content="一个给基金和股票新手使用的投资复盘工具，记录买入理由、仓位、风险等级和复盘日期，生成清晰的投资复盘报告。">
+    <meta name="keywords" content="投资复盘工具,基金复盘模板,股票复盘模板,买入理由记录,基金定投复盘">
+    <meta property="og:title" content="投资复盘工具">
+    <meta property="og:description" content="记录每一次买入理由，帮你从冲动交易变成有计划的长期投资。">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="投资复盘工具首页">
+        <span class="brand-mark">IR</span>
+        <span>投资复盘工具</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#tool">开始复盘</a>
+        <a href="articles/fund-review-template.html">基金模板</a>
+        <a href="articles/etf-beginner.html">ETF 入门</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">给基金和股票新手的投资纪律工具</p>
+          <h1>买之前写清理由，亏的时候才不会慌。</h1>
+          <p class="lead">用一张复盘卡记录标的、仓位、买入理由、风险和复盘日期。它不替你荐股，只帮你把每次投资变得可追踪、可复盘。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#tool">生成复盘报告</a>
+            <a class="button ghost" href="articles/fund-review-template.html">查看复盘模板</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="资产复盘仪表盘示意">
+          <div class="metric-strip">
+            <span>本月记录</span>
+            <strong>12</strong>
+          </div>
+          <canvas id="allocationChart" width="520" height="320" aria-hidden="true"></canvas>
+          <div class="visual-note">
+            <span>复盘提醒</span>
+            <strong>下次检查：30 天后</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="value-band">
+        <div>
+          <strong>避免冲动交易</strong>
+          <span>每次买入先写理由。</span>
+        </div>
+        <div>
+          <strong>控制仓位风险</strong>
+          <span>单笔投资不再失控。</span>
+        </div>
+        <div>
+          <strong>形成长期记录</strong>
+          <span>复盘比预测更重要。</span>
+        </div>
+      </section>
+
+      <section id="tool" class="tool-section">
+        <div class="section-heading">
+          <p class="eyebrow">免费工具</p>
+          <h2>生成你的投资复盘报告</h2>
+        </div>
+        <div class="tool-layout">
+          <form id="reviewForm" class="tool-form">
+            <label>
+              投资标的
+              <input name="assetName" type="text" placeholder="例如：沪深 300 ETF、苹果公司" required>
+            </label>
+            <label>
+              资产类型
+              <select name="assetType">
+                <option>宽基指数基金</option>
+                <option>行业基金</option>
+                <option>主动基金</option>
+                <option>股票</option>
+                <option>债券/现金类</option>
+              </select>
+            </label>
+            <label>
+              仓位比例
+              <input name="positionSize" type="number" min="1" max="100" value="10" required>
+            </label>
+            <label>
+              风险等级
+              <select name="riskLevel">
+                <option>低</option>
+                <option selected>中</option>
+                <option>高</option>
+              </select>
+            </label>
+            <label class="wide">
+              买入理由
+              <textarea name="reason" rows="4" placeholder="写下你为什么买它：长期逻辑、估值、现金流、配置需求或定投计划。" required></textarea>
+            </label>
+            <label class="wide">
+              卖出或调整条件
+              <textarea name="exitRule" rows="3" placeholder="例如：基本面恶化、仓位超过计划、达到再平衡时间、投资逻辑失效。"></textarea>
+            </label>
+            <label>
+              复盘日期
+              <input name="reviewDate" type="date" required>
+            </label>
+            <button class="button primary wide" type="submit">生成报告</button>
+          </form>
+
+          <aside class="result-panel" aria-live="polite">
+            <div class="result-header">
+              <span>复盘报告</span>
+              <button id="copyReport" class="icon-button" type="button" title="复制报告">Copy</button>
+            </div>
+            <pre id="reportOutput">填写左侧表单后，这里会生成一份可复制的投资复盘报告。</pre>
+          </aside>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article>
+          <p class="eyebrow">SEO 页面样例</p>
+          <h2>基金定投复盘模板</h2>
+          <p>围绕“基金定投复盘模板”这样的长尾关键词写内容，可以承接有明确需求的搜索流量。</p>
+          <a href="articles/fund-review-template.html">阅读文章</a>
+        </article>
+        <article>
+          <p class="eyebrow">SEO 页面样例</p>
+          <h2>ETF 新手入门</h2>
+          <p>工具站不只靠工具页面，也要用教育内容解释概念、建立信任、带来长期访问。</p>
+          <a href="articles/etf-beginner.html">阅读文章</a>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>本工具仅用于投资记录和教育，不构成任何投资建议。</p>
+      <p>下一步可以接入用户登录、历史记录、AI 复盘和会员订阅。</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
